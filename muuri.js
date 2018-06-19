@@ -4471,7 +4471,9 @@
     var i;
 
     for (i = 0; i < props.length; i++) {
-      element.style[props[i] === 'transform' && transform ? transform.propName : props[i]] = styles[props[i]];
+      if (element && !!element.style) {
+        element.style[props[i] === 'transform' && transform ? transform.propName : props[i]] = styles[props[i]];
+      }
     }
 
   }
